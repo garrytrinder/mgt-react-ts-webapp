@@ -37,13 +37,12 @@ function grantAdminConsent (){
 }
 
 echo "Creating app registration ..."
-appName="MS Graph Toolkit"
+appName="Microsoft Graph Toolkit ParcelJS"
 replyUrl="http://localhost:1234/"
 appId=`createAppRegistration $appName $replyUrl`
 
 echo "Adding delegate permissions ..."
 addDelegatePermission ${appId} "Microsoft Graph" "User.Read"
-addDelegatePermission ${appId} "Microsoft Graph" "People.Read"
 
 echo "Granting admin consent ..."
 grantAdminConsent ${appId}

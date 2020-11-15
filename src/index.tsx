@@ -5,14 +5,7 @@ import App from "./App";
 
 Providers.globalProvider = new MsalProvider({
   clientId: process.env.CLIENTID,
-  scopes: [
-    "calendars.read",
-    "user.read",
-    "openid",
-    "profile",
-    "people.read",
-    "user.readbasic.all",
-  ],
+  scopes: ["user.read"],
 });
 
 ReactDOM.render(
