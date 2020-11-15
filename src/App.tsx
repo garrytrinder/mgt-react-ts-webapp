@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Providers, ProviderState } from "@microsoft/mgt";
-import { Agenda, Login } from "@microsoft/mgt-react";
+import { Get, Login, MgtTemplateProps } from "@microsoft/mgt-react";
 
 const useIsSignedIn = () => {
   const [isSignedIn, setIsSignedIn] = React.useState(false);
@@ -22,6 +22,15 @@ const useIsSignedIn = () => {
   return [isSignedIn];
 };
 
+const MyTemplate = (props: MgtTemplateProps) => {
+  const user = props.dataContext;
+  return (
+    <div>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
+    </div>
+  );
+};
+
 const App: React.FunctionComponent = () => {
   const [isSignedIn] = useIsSignedIn();
 
@@ -30,8 +39,12 @@ const App: React.FunctionComponent = () => {
       <header>
         <Login />
       </header>
-      <div>{isSignedIn}</div>
-      <div>{isSignedIn && <Agenda />}</div>
+      <pre>{isSignedIn ? "true" : "false"}</pre>
+      {isSignedIn && (
+        <Get resource="/me" version="v1.0" scopes={["User.Read"]}>
+          <MyTemplate template="default" />
+        </Get>
+      )}
     </div>
   );
 };
