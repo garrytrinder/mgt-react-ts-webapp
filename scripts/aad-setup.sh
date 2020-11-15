@@ -37,7 +37,7 @@ function grantAdminConsent (){
 }
 
 echo "Creating app registration ..."
-appName="Microsoft Graph Toolkit ParcelJS"
+appName="mgt-react-ts-webapp"
 replyUrl="http://localhost:1234/"
 appId=`createAppRegistration $appName $replyUrl`
 
