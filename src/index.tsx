@@ -1,11 +1,13 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { MsalProvider, Providers } from "@microsoft/mgt";
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
+import { Msal2Provider, Providers } from "@microsoft/mgt";
 
-Providers.globalProvider = new MsalProvider({
-  clientId: process.env.CLIENTID,
-  scopes: ["user.read"],
+const clientId: string = process.env.CLIENTID ? process.env.CLIENTID : "";
+
+Providers.globalProvider = new Msal2Provider({
+  clientId: clientId,
+  scopes: ["user.read"]
 });
 
 ReactDOM.render(
