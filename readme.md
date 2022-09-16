@@ -7,17 +7,12 @@ The sample uses the `Login` component to authenticate with Azure and the `Get` c
 ## Path to awesome
 
 - Clone repo
-- Create Azure AD app registration
-  - Install Azure CLI & login to tenant
-  - Make setup file executable
-    - `chmod +x scripts/aad-setup.sh`
-  - Execute script to create app
-    - `./scripts/aad-setup.sh`
-  - Copy returned client id
-- Create `.env` file in root
-  - Add `CLIENTID=<clientid>`
-- Install dependencies 
-  - `npm install` 
+- Make AAD setup file executable
+  - `chmod +x scripts/aad-setup.sh`
+- Execute AAD setup script following prompts
+  - `./scripts/aad-setup.sh`
+- Install dependencies
+  - `npm install`
 - Start web server
   - `npm start`
 - Open `http://localhost:1234`
